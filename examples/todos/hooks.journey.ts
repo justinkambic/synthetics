@@ -7,6 +7,7 @@ import { Server as StaticServer } from 'node-static';
 let srv: Server;
 
 beforeAll(async () => {
+  throw Error('fail');
   const file = new StaticServer(join(__dirname, 'app'));
   srv = createServer(file.serve.bind(file)).listen(8080);
   await once(srv, 'listening');
